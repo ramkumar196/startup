@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+		Storage::disk('local')->put('file.txt', '/home/developer/SVN/startup/file.txt');
 		$sample_array = ['a','b','c','d'];
         return view('home',['sample'=>$sample_array]);
     }
